@@ -303,6 +303,38 @@
       </build>
       <reporting>
         <plugins>
+
+<!-- The Dependencies report takes an obscene amount of time to run.   
+Leaving it out of the reportSet. -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>2.4</version>
+            <reportSets>
+              <reportSet> 
+                <reports>
+                  <report>cim</report>
+<!--
+                  <report>dependency-management</report>
+                  <report>dependency-convergence</report>
+-->
+                  <report>help</report>
+                  <report>index</report>
+                  <report>issue-tracking</report>
+                  <report>license</report>
+                  <report>mailing-list</report>
+                  <report>modules</report>
+                  <report>plugin-management</report>
+                  <report>plugins</report>
+                  <report>project-team</report>
+                  <report>scm</report>
+                  <report>summary</report>
+                </reports>
+              </reportSet>
+            </reportSets>
+          </plugin>
+
+
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
