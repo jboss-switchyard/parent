@@ -24,7 +24,7 @@
 
   <groupId>org.switchyard</groupId>
   <artifactId>switchyard-parent</artifactId>
-  <version>0.3.0.CR1</version>
+  <version>0.3.0.Final</version>
   <packaging>pom</packaging>
   <name>SwitchYard</name>
 
