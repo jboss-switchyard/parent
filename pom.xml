@@ -58,7 +58,7 @@
     <version.antlr>3.3</version.antlr>
     <version.drools>5.2.1.Final</version.drools>
     <version.ecj>3.5.1</version.ecj>
-    <version.forge>1.0.0.Alpha4</version.forge>
+    <version.forge>1.0.0.Beta3</version.forge>
     <version.freemarker>2.3.15</version.freemarker>
     <version.hamcrest>1.1</version.hamcrest>
     <version.jaxen>1.1.1</version.jaxen>
