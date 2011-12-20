@@ -86,8 +86,15 @@
     <version.hibernate.entitymanager>3.6.8.Final</version.hibernate.entitymanager>
     <version.hibernate.ejb3-persistence>1.0.2.GA</version.hibernate.ejb3-persistence>
     <version.hibernate.commons-annotations>3.2.0.Final</version.hibernate.commons-annotations>
-    <version.hibernate.core>4.0.0.Beta1</version.hibernate.core>
+    <version.hibernate.core>3.6.8.Final</version.hibernate.core>
     <version.hibernate.validator>3.1.0.GA</version.hibernate.validator>
+    <!-- WARNING - components/bpel has its own dependencyManagement section -->
+    <!-- to override hiberate version -->
+    <version.hibernate.bpel>4.0.0.CR2</version.hibernate.bpel>
+    <!-- WARNING - quickstarts/demo/helpdesk has its own dependencyManagement -->
+    <!-- section to override hiberate version -->
+    <version.hibernate.core.helpdesk>3.3.2.GA</version.hibernate.core.helpdesk>
+    <version.hibernate.entitymanager.helpdesk>3.4.0.GA</version.hibernate.entitymanager.helpdesk>
     <version.hornetq>2.2.5.Final</version.hornetq>
     <version.jackson>1.8.0</version.jackson>
     <version.jaxb.api>1.0.0.Final</version.jaxb.api>
@@ -96,6 +103,8 @@
     <version.javassist>3.12.0.GA</version.javassist>
     <version.javax.jms>1.1</version.javax.jms>
     <version.jbpm>5.1.1.Final</version.jbpm>
+    <!-- Used with core/test for testing -->
+    <version.jboss.interceptor>2.0.0.Alpha3</version.jboss.interceptor>
     <version.jboss.deployers>2.2.0.GA</version.jboss.deployers>
     <version.jboss.vfs>3.0.1.GA</version.jboss.vfs>
     <version.jbossas>7.0.2.Final</version.jbossas>
@@ -613,11 +622,11 @@
         <artifactId>switchyard-deploy-cdi</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
-         <groupId>org.switchyard</groupId>
-         <artifactId>switchyard-deploy-jboss-as6</artifactId>
-         <version>${project.version}</version>
-      </dependency>
+      <!-- <dependency> -->
+      <!--    <groupId>org.switchyard</groupId> -->
+      <!--    <artifactId>switchyard-deploy-jboss-as6</artifactId> -->
+      <!--    <version>${project.version}</version> -->
+      <!-- </dependency> -->
       <dependency>
         <groupId>org.switchyard</groupId>
         <artifactId>switchyard-deploy-jboss-as7</artifactId>
@@ -833,45 +842,45 @@
 
 
       <!-- External dependencies - please keep in alphabetical order by groupId -->
-     <dependency>
-        <groupId>com.dyuproject.protostuff</groupId>
-        <artifactId>protostuff-api</artifactId>
-        <version>${version.protostuff}</version>
-     </dependency>
-     <dependency>
-        <groupId>com.dyuproject.protostuff</groupId>
-        <artifactId>protostuff-core</artifactId>
-        <version>${version.protostuff}</version>
-     </dependency>
-     <dependency>
-        <groupId>com.dyuproject.protostuff</groupId>
-        <artifactId>protostuff-collectionschema</artifactId>
-        <version>${version.protostuff}</version>
-     </dependency>
-     <dependency>
-        <groupId>com.dyuproject.protostuff</groupId>
-        <artifactId>protostuff-runtime</artifactId>
-        <version>${version.protostuff}</version>
-     </dependency>
-     <dependency>
-        <groupId>com.dyuproject.protostuff</groupId>
-        <artifactId>protostuff-json</artifactId>
-        <version>${version.protostuff}</version>
-     </dependency>
-     <dependency>
-        <groupId>com.dyuproject.protostuff</groupId>
-        <artifactId>protostuff-xml</artifactId>
-        <version>${version.protostuff}</version>
-     </dependency>
       <dependency>
-          <groupId>com.h2database</groupId>
-          <artifactId>h2</artifactId>
-          <version>${version.h2database}</version>
-       </dependency>
+         <groupId>com.dyuproject.protostuff</groupId>
+         <artifactId>protostuff-api</artifactId>
+         <version>${version.protostuff}</version>
+      </dependency>
       <dependency>
-          <groupId>com.thoughtworks.xstream</groupId>
-          <artifactId>xstream</artifactId>
-          <version>${version.xstream}</version>
+         <groupId>com.dyuproject.protostuff</groupId>
+         <artifactId>protostuff-core</artifactId>
+         <version>${version.protostuff}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.dyuproject.protostuff</groupId>
+         <artifactId>protostuff-collectionschema</artifactId>
+         <version>${version.protostuff}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.dyuproject.protostuff</groupId>
+         <artifactId>protostuff-runtime</artifactId>
+         <version>${version.protostuff}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.dyuproject.protostuff</groupId>
+         <artifactId>protostuff-json</artifactId>
+         <version>${version.protostuff}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.dyuproject.protostuff</groupId>
+         <artifactId>protostuff-xml</artifactId>
+         <version>${version.protostuff}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.h2database</groupId>
+         <artifactId>h2</artifactId>
+         <version>${version.h2database}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.thoughtworks.xstream</groupId>
+         <artifactId>xstream</artifactId>
+         <version>${version.xstream}</version>
       </dependency>
       <dependency>
          <groupId>commons-codec</groupId>
@@ -880,9 +889,9 @@
          <scope>test</scope>
       </dependency>
       <dependency>
-          <groupId>commons-httpclient</groupId>
-          <artifactId>commons-httpclient</artifactId>
-          <version>${version.commons.httpclient}</version>
+         <groupId>commons-httpclient</groupId>
+         <artifactId>commons-httpclient</artifactId>
+         <version>${version.commons.httpclient}</version>
       </dependency>
       <dependency>
          <groupId>commons-lang</groupId>
@@ -890,9 +899,9 @@
          <version>${version.commons.lang}</version>
       </dependency>
       <dependency>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-          <version>${version.commons.logging}</version>
+         <groupId>commons-logging</groupId>
+         <artifactId>commons-logging</artifactId>
+         <version>${version.commons.logging}</version>
       </dependency>
       <dependency>
          <groupId>dom4j</groupId>
@@ -905,14 +914,14 @@
          <version>${version.javassist}</version>
       </dependency>
       <dependency>
-        <groupId>javax.activation</groupId>
-        <artifactId>activation</artifactId>
-        <version>${version.activation}</version>
+         <groupId>javax.activation</groupId>
+         <artifactId>activation</artifactId>
+         <version>${version.activation}</version>
       </dependency>
       <dependency>
          <groupId>javax.enterprise</groupId>
          <artifactId>cdi-api</artifactId>
-          <version>${version.cdi}</version>
+         <version>${version.cdi}</version>
       </dependency>
       <dependency>
          <groupId>javax.jms</groupId>
@@ -925,14 +934,14 @@
          <version>${version.jpa}</version>
       </dependency>
       <dependency>
-          <groupId>javax.servlet</groupId>
-          <artifactId>servlet-api</artifactId>
-          <version>${version.servlet}</version>
+         <groupId>javax.servlet</groupId>
+         <artifactId>servlet-api</artifactId>
+         <version>${version.servlet}</version>
       </dependency>
       <dependency>
-          <groupId>javax.transaction</groupId>
-          <artifactId>jta</artifactId>
-          <version>${version.jta}</version>
+         <groupId>javax.transaction</groupId>
+         <artifactId>jta</artifactId>
+         <version>${version.jta}</version>
       </dependency>
       <dependency>
          <groupId>net.sourceforge.saxon</groupId>
@@ -950,24 +959,24 @@
          <version>${version.jaxb.impl}</version>
       </dependency>
       <dependency>
-          <groupId>jaxen</groupId>
-          <artifactId>jaxen</artifactId>
-          <version>${version.jaxen}</version>
+         <groupId>jaxen</groupId>
+         <artifactId>jaxen</artifactId>
+         <version>${version.jaxen}</version>
       </dependency>
       <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${version.junit}</version>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>${version.junit}</version>
       </dependency>
       <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${version.log4j}</version>
+         <groupId>log4j</groupId>
+         <artifactId>log4j</artifactId>
+         <version>${version.log4j}</version>
       </dependency>
-     <dependency>
-        <groupId>org.antlr</groupId>
-        <artifactId>antlr-runtime</artifactId>
-        <version>${version.antlr}</version>
+      <dependency>
+         <groupId>org.antlr</groupId>
+         <artifactId>antlr-runtime</artifactId>
+         <version>${version.antlr}</version>
       </dependency>
       <dependency>
          <groupId>org.apache.camel</groupId>
@@ -999,22 +1008,22 @@
          <artifactId>mina-core</artifactId>
          <version>${version.mina}</version>
       </dependency>
-       <dependency>
-        <groupId>org.apache.maven</groupId>
-        <artifactId>maven-plugin-api</artifactId>
-        <version>${version.maven.plugin.api}</version>
-        <scope>provided</scope>
+      <dependency>
+         <groupId>org.apache.maven</groupId>
+         <artifactId>maven-plugin-api</artifactId>
+         <version>${version.maven.plugin.api}</version>
+         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-plugin-plugin</artifactId>
-        <version>${version.maven.plugin.plugin}</version>
-        <scope>provided</scope>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-plugin-plugin</artifactId>
+         <version>${version.maven.plugin.plugin}</version>
+         <scope>provided</scope>
       </dependency>
       <dependency>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>${version.maven.deploy.plugin}</version>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-deploy-plugin</artifactId>
+         <version>${version.maven.deploy.plugin}</version>
       </dependency>
       <dependency>
          <groupId>org.apache.xalan</groupId>
@@ -1022,9 +1031,9 @@
          <version>${version.xalan}</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.xalan</groupId>
-        <artifactId>xalan</artifactId>
-        <version>${version.xalan}</version>
+         <groupId>org.apache.xalan</groupId>
+         <artifactId>xalan</artifactId>
+         <version>${version.xalan}</version>
       </dependency>
       <dependency>
          <groupId>org.apache.xmlbeans</groupId>
@@ -1037,60 +1046,60 @@
          <version>${version.clojure}</version>
       </dependency>
       <dependency>
-          <groupId>org.codehaus.jackson</groupId>
-          <artifactId>jackson-mapper-asl</artifactId>
-          <version>${version.jackson}</version>
+         <groupId>org.codehaus.jackson</groupId>
+         <artifactId>jackson-mapper-asl</artifactId>
+         <version>${version.jackson}</version>
       </dependency>
       <dependency>
-          <groupId>org.codehaus.jackson</groupId>
-          <artifactId>jackson-core-asl</artifactId>
-          <version>${version.jackson}</version>
+         <groupId>org.codehaus.jackson</groupId>
+         <artifactId>jackson-core-asl</artifactId>
+         <version>${version.jackson}</version>
       </dependency>
       <dependency>
-          <groupId>org.drools</groupId>
-          <artifactId>knowledge-api</artifactId>
-          <version>${version.drools}</version>
+         <groupId>org.drools</groupId>
+         <artifactId>knowledge-api</artifactId>
+         <version>${version.drools}</version>
       </dependency>
       <dependency>
-          <groupId>org.drools</groupId>
-          <artifactId>drools-core</artifactId>
-          <version>${version.drools}</version>
+         <groupId>org.drools</groupId>
+         <artifactId>drools-core</artifactId>
+         <version>${version.drools}</version>
       </dependency>
       <dependency>
-          <groupId>org.drools</groupId>
-          <artifactId>drools-compiler</artifactId>
-          <version>${version.drools}</version>
+         <groupId>org.drools</groupId>
+         <artifactId>drools-compiler</artifactId>
+         <version>${version.drools}</version>
       </dependency>
       <dependency>
-          <groupId>org.drools</groupId>
-          <artifactId>drools-persistence-jpa</artifactId>
-          <version>${version.drools}</version>
+         <groupId>org.drools</groupId>
+         <artifactId>drools-persistence-jpa</artifactId>
+         <version>${version.drools}</version>
       </dependency>
       <dependency>
-          <groupId>org.eclipse.jdt.core.compiler</groupId>
-          <artifactId>ecj</artifactId>
-          <version>${version.ecj}</version>
+         <groupId>org.eclipse.jdt.core.compiler</groupId>
+         <artifactId>ecj</artifactId>
+         <version>${version.ecj}</version>
       </dependency>
       <dependency>
-          <groupId>org.freemarker</groupId>
-          <artifactId>freemarker</artifactId>
-          <version>${version.freemarker}</version>
+         <groupId>org.freemarker</groupId>
+         <artifactId>freemarker</artifactId>
+         <version>${version.freemarker}</version>
       </dependency>
       <dependency>
          <groupId>org.fusesource.commonman</groupId>
          <artifactId>commons-management</artifactId>
          <version>${version.commonman}</version>
       </dependency>
-     <dependency>
-        <groupId>org.hamcrest</groupId>
-        <artifactId>hamcrest-all</artifactId>
-        <version>${version.hamcrest}</version>
-     </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-annotations</artifactId>
-      <version>${version.hibernate.annotations}</version>
-    </dependency>
+      <dependency>
+         <groupId>org.hamcrest</groupId>
+         <artifactId>hamcrest-all</artifactId>
+         <version>${version.hamcrest}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-annotations</artifactId>
+        <version>${version.hibernate.annotations}</version>
+      </dependency>
       <dependency>
          <groupId>org.hibernate</groupId>
          <artifactId>hibernate-core</artifactId>
@@ -1111,31 +1120,30 @@
          <artifactId>hibernate-commons-annotations</artifactId>
          <version>${version.hibernate.commons-annotations}</version>
       </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${version.hibernate.validator}</version>
-        </dependency>
       <dependency>
-          <groupId>org.hornetq</groupId>
-          <artifactId>hornetq-core</artifactId>
-          <version>${version.hornetq}</version>
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-validator</artifactId>
+         <version>${version.hibernate.validator}</version>
       </dependency>
       <dependency>
-          <groupId>org.hornetq</groupId>
-          <artifactId>hornetq-core-client</artifactId>
-          <version>${version.hornetq}</version>
+         <groupId>org.hornetq</groupId>
+         <artifactId>hornetq-core</artifactId>
+         <version>${version.hornetq}</version>
       </dependency>
       <dependency>
-          <groupId>org.hornetq</groupId>
-          <artifactId>hornetq-jms</artifactId>
-          <version>${version.hornetq}</version>
-          <scope>compile</scope>
+         <groupId>org.hornetq</groupId>
+         <artifactId>hornetq-core-client</artifactId>
+         <version>${version.hornetq}</version>
       </dependency>
       <dependency>
-          <groupId>org.hornetq</groupId>
-          <artifactId>hornetq-jms-client</artifactId>
-          <version>${version.hornetq}</version>
+         <groupId>org.hornetq</groupId>
+         <artifactId>hornetq-jms</artifactId>
+         <version>${version.hornetq}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.hornetq</groupId>
+         <artifactId>hornetq-jms-client</artifactId>
+         <version>${version.hornetq}</version>
       </dependency>
       <dependency>
          <groupId>org.jboss.arquillian</groupId>
@@ -1169,28 +1177,23 @@
          <type>zip</type>
       </dependency>
       <dependency>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-console-parent</artifactId>
-        <version>${version.jbossas.console}</version>
-        <type>pom</type>
-        <scope>import</scope>
+         <groupId>org.jboss.as</groupId>
+         <artifactId>jboss-as-console-parent</artifactId>
+         <version>${version.jbossas.console}</version>
+         <type>pom</type>
+         <scope>import</scope>
       </dependency>
-      <dependency>
-        <groupId>org.jboss.as</groupId>
-        <artifactId>jboss-as-parent</artifactId>
-        <version>${version.jbossas}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+      <!-- WARNING - jboss.as:jboss-as-parent with import scope moved -->
+      <!-- to console as conflicts with quickstarts/demos/helpdesk    -->
       <dependency>
          <groupId>org.jboss.as</groupId>
          <artifactId>jboss-as-arquillian-container-managed</artifactId>
          <version>${version.jbossas}</version>
       </dependency>
       <dependency>
-        <groupId>org.jboss.ballroom</groupId>
-        <artifactId>widgets</artifactId>
-        <version>${version.ballroom}</version>
+         <groupId>org.jboss.ballroom</groupId>
+         <artifactId>widgets</artifactId>
+         <version>${version.ballroom}</version>
       </dependency>
       <dependency>
          <groupId>org.jboss.classfilewriter</groupId>
@@ -1218,9 +1221,9 @@
          <version>${version.jboss.deployers}</version>
       </dependency>
       <dependency>
-        <groupId>org.jboss.forge</groupId>
-        <artifactId>forge-maven-api</artifactId>
-        <version>${version.forge}</version>
+         <groupId>org.jboss.forge</groupId>
+         <artifactId>forge-maven-api</artifactId>
+         <version>${version.forge}</version>
       </dependency>
       <dependency>
          <groupId>org.jboss.forge</groupId>
@@ -1238,9 +1241,14 @@
          <version>${version.forge}</version>
       </dependency>
       <dependency>
-        <groupId>org.jboss.forge</groupId>
-        <artifactId>forge-shell-api</artifactId>
-        <version>${version.forge}</version>
+         <groupId>org.jboss.forge</groupId>
+         <artifactId>forge-shell-api</artifactId>
+         <version>${version.forge}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.interceptor</groupId>
+         <artifactId>jboss-interceptor-core</artifactId>
+         <version>${version.jboss.interceptor}</version>
       </dependency>
       <dependency>
          <groupId>org.jboss.jbossas</groupId>
@@ -1388,62 +1396,62 @@
          <version>${version.weld}</version>
       </dependency>
       <dependency>
-          <groupId>org.jbpm</groupId>
-          <artifactId>jbpm-bpmn2</artifactId>
-          <version>${version.jbpm}</version>
+         <groupId>org.jbpm</groupId>
+         <artifactId>jbpm-bpmn2</artifactId>
+         <version>${version.jbpm}</version>
       </dependency>
       <dependency>
-          <groupId>org.jbpm</groupId>
-          <artifactId>jbpm-flow</artifactId>
-          <version>${version.jbpm}</version>
+         <groupId>org.jbpm</groupId>
+         <artifactId>jbpm-flow</artifactId>
+         <version>${version.jbpm}</version>
       </dependency>
       <dependency>
-          <groupId>org.jbpm</groupId>
-          <artifactId>jbpm-flow-builder</artifactId>
-          <version>${version.jbpm}</version>
+         <groupId>org.jbpm</groupId>
+         <artifactId>jbpm-flow-builder</artifactId>
+         <version>${version.jbpm}</version>
       </dependency>
       <dependency>
-          <groupId>org.jbpm</groupId>
-          <artifactId>jbpm-human-task</artifactId>
-          <version>${version.jbpm}</version>
-          <exclusions>
-              <exclusion>
-                  <groupId>xml-apis</groupId>
-                  <artifactId>xml-apis</artifactId>
-              </exclusion>
-              <exclusion>
-                  <groupId>xerces</groupId>
-                  <artifactId>xercesimpl</artifactId>
-              </exclusion>
-              <exclusion>
-                  <groupId>xerces</groupId>
-                  <artifactId>xmlparserapis</artifactId>
-              </exclusion>
-              <exclusion>
-                  <groupId>org.slf4j</groupId>
-                  <artifactId>slf4j-api</artifactId>
-              </exclusion>
-          </exclusions>
+         <groupId>org.jbpm</groupId>
+         <artifactId>jbpm-human-task</artifactId>
+         <version>${version.jbpm}</version>
+         <exclusions>
+            <exclusion>
+               <groupId>xml-apis</groupId>
+               <artifactId>xml-apis</artifactId>
+            </exclusion>
+            <exclusion>
+               <groupId>xerces</groupId>
+               <artifactId>xercesimpl</artifactId>
+            </exclusion>
+            <exclusion>
+               <groupId>xerces</groupId>
+               <artifactId>xmlparserapis</artifactId>
+            </exclusion>
+            <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+            </exclusion>
+         </exclusions>
       </dependency>
       <dependency>
-          <groupId>org.jbpm</groupId>
-          <artifactId>jbpm-persistence-jpa</artifactId>
-          <version>${version.jbpm}</version>
-          <exclusions>
-              <exclusion>
-                  <artifactId>hibernate-annotations</artifactId>
-                  <groupId>org.hibernate</groupId>
-              </exclusion>
-              <exclusion>
-                  <groupId>org.slf4j</groupId>
-                  <artifactId>slf4j-api</artifactId>
-              </exclusion>
-          </exclusions>
+         <groupId>org.jbpm</groupId>
+         <artifactId>jbpm-persistence-jpa</artifactId>
+         <version>${version.jbpm}</version>
+         <exclusions>
+            <exclusion>
+               <artifactId>hibernate-annotations</artifactId>
+               <groupId>org.hibernate</groupId>
+            </exclusion>
+            <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+            </exclusion>
+         </exclusions>
       </dependency>
       <dependency>
-          <groupId>org.jbpm</groupId>
-          <artifactId>jbpm-workitems</artifactId>
-          <version>${version.jbpm}</version>
+         <groupId>org.jbpm</groupId>
+         <artifactId>jbpm-workitems</artifactId>
+         <version>${version.jbpm}</version>
       </dependency>
       <dependency>
          <groupId>org.milyn</groupId>
@@ -1461,9 +1469,9 @@
          <version>${version.mockito}</version>
       </dependency>
       <dependency>
-          <groupId>org.mvel</groupId>
-          <artifactId>mvel2</artifactId>
-          <version>${version.mvel}</version>
+         <groupId>org.mvel</groupId>
+         <artifactId>mvel2</artifactId>
+         <version>${version.mvel}</version>
       </dependency>
       <dependency>
          <groupId>org.riftsaw</groupId>
@@ -1471,19 +1479,19 @@
          <version>${version.riftsaw.engine}</version>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${version.slf4j}</version>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <version>${version.slf4j}</version>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>${version.slf4j}</version>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-log4j12</artifactId>
+         <version>${version.slf4j}</version>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-ext</artifactId>
-        <version>${version.slf4j}</version>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-ext</artifactId>
+         <version>${version.slf4j}</version>
       </dependency>
       <dependency>
          <groupId>org.springframework</groupId>
@@ -1526,12 +1534,12 @@
          <version>${version.wsdl4j}</version>
       </dependency>
       <dependency>
-        <groupId>xmlunit</groupId>
-        <artifactId>xmlunit</artifactId>
-        <version>${version.xmlunit}</version>
+         <groupId>xmlunit</groupId>
+         <artifactId>xmlunit</artifactId>
+         <version>${version.xmlunit}</version>
       </dependency>
    </dependencies>
-  </dependencyManagement>
+</dependencyManagement>
 
   <distributionManagement>
     <repository>
