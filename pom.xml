@@ -133,6 +133,7 @@
     <version.mvel>2.1.Beta6</version.mvel>
     <version.naming>5.0.5.Final</version.naming>
     <version.netty>3.2.1.Final</version.netty>
+    <version.openshift.jbossas>7.0.2.Final</version.openshift.jbossas>
     <version.protostuff>1.0.4</version.protostuff>
     <version.riftsaw.ode>3.0.0.20111024-M1</version.riftsaw.ode>
     <version.riftsaw.engine>3.0.0.20111024-M1</version.riftsaw.engine>
