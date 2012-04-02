@@ -294,11 +294,16 @@
        </dependencies>
         <configuration>
           <archive>
+            <addMavenDescriptor>true</addMavenDescriptor>
             <manifest>
               <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
             </manifest>
-            <addMavenDescriptor>true</addMavenDescriptor>
+            <manifestEntries>
+              <Project-Group-Id>${project.groupId}</Project-Group-Id>
+              <Project-Artifact-Id>${project.artifactId}</Project-Artifact-Id>
+              <Project-Version>${project.version}</Project-Version>
+            </manifestEntries>
           </archive>
         </configuration>
       </plugin>
