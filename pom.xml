@@ -106,8 +106,9 @@
     <version.jbossas.openshift>7.1.0.Final</version.jbossas.openshift>
     <version.jettison>1.2</version.jettison>
     <version.jpa>1.0.2</version.jpa>
-    <version.jta>1.1</version.jta>
     <version.jsch>0.1.44-1</version.jsch>
+    <version.jta>1.1</version.jta>
+    <version.junit>4.10</version.junit>
     <version.maven.gwt.plugin>2.3.0</version.maven.gwt.plugin>
     <version.maven.exec.plugin>1.2</version.maven.exec.plugin>
     <version.maven.shade.plugin>1.4</version.maven.shade.plugin>
@@ -372,6 +373,7 @@
               <consoleOutput>false</consoleOutput>
               <suppressionsLocation>checkstyle/suppressions.xml</suppressionsLocation>
               <failsOnError>false</failsOnError>
+              <includeTestSourceDirectory>true</includeTestSourceDirectory>
               <useFile/>
             </configuration>
           <dependencies>
@@ -775,6 +777,11 @@
       </dependency>
       <dependency>
          <groupId>org.switchyard.components</groupId>
+         <artifactId>switchyard-component-clojure</artifactId>
+         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.switchyard.components</groupId>
          <artifactId>switchyard-component-hornetq</artifactId>
          <version>${project.version}</version>
       </dependency>
@@ -913,82 +920,82 @@
 
 
       <!-- External dependencies - please keep in alphabetical order by groupId -->
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-dom</artifactId>
-		  <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-svg-dom</artifactId>
-		  <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-svggen</artifactId>
-	      <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-util</artifactId>
-		  <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-css</artifactId>
-	      <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-ext</artifactId>
-		  <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-xml</artifactId>
-	      <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-transcoder</artifactId>
-		  <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-bridge</artifactId>
-		  <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-gvt</artifactId>
-		  <version>${version.batik}</version>
-	   </dependency>
-	   <dependency>
-		  <groupId>batik</groupId>
-	      <artifactId>batik-script</artifactId>
-		  <version>${version.batik}</version>
-	  </dependency>
-	  <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-awt-util</artifactId>
-		  <version>${version.batik}</version>
-	  </dependency>
-	  <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-parser</artifactId>
-		  <version>${version.batik}</version>
-	  </dependency>
-	  <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-anim</artifactId>
-		  <version>${version.batik}</version>
-	  </dependency>
-	  <dependency>
-		  <groupId>batik</groupId>
-		  <artifactId>batik-codec</artifactId>
-		  <version>${version.batik}</version>
-	  </dependency>
-		
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-dom</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-svg-dom</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-svggen</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-util</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-css</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-ext</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-xml</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-transcoder</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-bridge</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-gvt</artifactId>
+          <version>${version.batik}</version>
+       </dependency>
+       <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-script</artifactId>
+          <version>${version.batik}</version>
+      </dependency>
+      <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-awt-util</artifactId>
+          <version>${version.batik}</version>
+      </dependency>
+      <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-parser</artifactId>
+          <version>${version.batik}</version>
+      </dependency>
+      <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-anim</artifactId>
+          <version>${version.batik}</version>
+      </dependency>
+      <dependency>
+          <groupId>batik</groupId>
+          <artifactId>batik-codec</artifactId>
+          <version>${version.batik}</version>
+      </dependency>
+        
       <dependency>
          <groupId>com.dyuproject.protostuff</groupId>
          <artifactId>protostuff-api</artifactId>
@@ -1018,6 +1025,11 @@
          <groupId>com.dyuproject.protostuff</groupId>
          <artifactId>protostuff-xml</artifactId>
          <version>${version.protostuff}</version>
+      </dependency>
+      <dependency>
+         <groupId>com.jcraft</groupId>
+         <artifactId>jsch</artifactId>
+         <version>${version.jsch}</version>
       </dependency>
       <dependency>
          <groupId>com.thoughtworks.xstream</groupId>
@@ -1056,9 +1068,9 @@
          <version>${version.jta}</version>
       </dependency>
       <dependency>
-         <groupId>com.jcraft</groupId>
-         <artifactId>jsch</artifactId>
-         <version>${version.jsch}</version>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>${version.junit}</version>
       </dependency>
       <dependency>
          <groupId>net.sourceforge.saxon</groupId>
@@ -1122,15 +1134,15 @@
          <scope>provided</scope>
       </dependency>
       <dependency>
-		 <groupId>org.apache.ws.commons.axiom</groupId>
-		 <artifactId>axiom-impl</artifactId>
-		 <version>${version.axiom}</version>
-	  </dependency>
+         <groupId>org.apache.ws.commons.axiom</groupId>
+         <artifactId>axiom-impl</artifactId>
+         <version>${version.axiom}</version>
+      </dependency>
       <dependency>
-		 <groupId>org.apache.ws.commons.axiom</groupId>
-		 <artifactId>axiom-api</artifactId>
-		 <version>${version.axiom}</version>
-	  </dependency>
+         <groupId>org.apache.ws.commons.axiom</groupId>
+         <artifactId>axiom-api</artifactId>
+         <version>${version.axiom}</version>
+      </dependency>
       <dependency>
          <groupId>org.apache.xalan</groupId>
          <artifactId>serializer</artifactId>
@@ -1257,12 +1269,12 @@
        <dependency>
          <groupId>org.jboss.bpm</groupId>
          <artifactId>gwt-console-rpc</artifactId>
-		 <version>${version.riftsaw.console}</version>
+         <version>${version.riftsaw.console}</version>
       </dependency>
       <dependency>
          <groupId>org.jboss.bpm</groupId>
          <artifactId>gwt-console-server-integration</artifactId>
-		 <version>${version.riftsaw.console}</version>
+         <version>${version.riftsaw.console}</version>
       </dependency>
       <dependency>
          <groupId>org.jboss.forge</groupId>
@@ -1287,6 +1299,11 @@
       <dependency>
          <groupId>org.jboss.forge</groupId>
          <artifactId>forge-shell-api</artifactId>
+         <version>${version.forge}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.jboss.forge</groupId>
+         <artifactId>forge-test-harness</artifactId>
          <version>${version.forge}</version>
       </dependency>
       <dependency>
@@ -1482,7 +1499,7 @@
          <artifactId>engine</artifactId>
          <version>${version.riftsaw.engine}</version>
       </dependency>
-	  <dependency>
+      <dependency>
          <groupId>org.riftsaw.console</groupId>
          <artifactId>riftsaw-bpel2svg</artifactId>
          <version>${version.riftsaw.engine}</version>
@@ -1544,16 +1561,16 @@
          <artifactId>spring-jms</artifactId>
          <version>${version.spring}</version>
       </dependency>
-	  <dependency>
-		 <groupId>xml-apis</groupId>
-		 <artifactId>xml-apis-ext</artifactId>
-		 <version>${version.xml-apis}</version>
-	  </dependency>
-	  <dependency>
-		 <groupId>xml-apis</groupId>
-		 <artifactId>xml-apis</artifactId>
-		 <version>${version.xml-apis}</version>
-	  </dependency>
+      <dependency>
+         <groupId>xml-apis</groupId>
+         <artifactId>xml-apis-ext</artifactId>
+         <version>${version.xml-apis}</version>
+      </dependency>
+      <dependency>
+         <groupId>xml-apis</groupId>
+         <artifactId>xml-apis</artifactId>
+         <version>${version.xml-apis}</version>
+      </dependency>
       <dependency>
          <groupId>xmlunit</groupId>
          <artifactId>xmlunit</artifactId>
