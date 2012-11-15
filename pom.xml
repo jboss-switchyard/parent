@@ -816,6 +816,11 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.switchyard</groupId>
+                <artifactId>switchyard-selector</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+             <dependency>
                 <groupId>org.switchyard.components</groupId>
                 <artifactId>switchyard-component-bean</artifactId>
                 <version>${project.version}</version>
