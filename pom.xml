@@ -81,6 +81,7 @@
         <version.deltaspike>${version.org.apache.deltaspike}</version.deltaspike>
         <version.drools>6.0.0.Alpha9</version.drools>
         <version.ecj>3.5.1</version.ecj>
+        <version.felix.maven>2.4.0</version.felix.maven>
         <version.forge>1.2.2.Final</version.forge>
         <version.forge.arquillian>1.0.0.CR7</version.forge.arquillian>
         <version.forge.jboss.interceptor>2.0.0.Final</version.forge.jboss.interceptor>
@@ -90,6 +91,7 @@
         <version.fungal>0.10.2.Final</version.fungal>
         <version.groovy>2.0.5</version.groovy>
         <version.hamcrest>1.1</version.hamcrest>
+        <version.httpcomponents>4.2.1</version.httpcomponents>
         <version.hornetq>2.3.0.CR1</version.hornetq>
         <!-- The EAP6 BOM has a version 5.2.1.FINAL, so overriding it here -->
         <version.infinispan>5.2.1.Final</version.infinispan>
@@ -110,6 +112,7 @@
         <version.junit>4.10</version.junit>
         <version.jruby>1.7.2</version.jruby>
         <version.jython>2.5.3</version.jython>
+        <version.karaf>2.3.1</version.karaf>
         <version.kie>6.0.0.Alpha9</version.kie>
         <version.maven.plugin.plugin>3.1</version.maven.plugin.plugin>
         <version.mina>2.0.4</version.mina>
@@ -124,6 +127,8 @@
         <version.quartz>1.8.5</version.quartz>
         <version.qpid>0.18</version.qpid>
         <version.ognl>3.0.6</version.ognl>
+        <version.osgi.core>4.3.1</version.osgi.core>
+        <version.osgi.compendium>4.3.1</version.osgi.compendium>
         <version.protobuf>2.4.1</version.protobuf>
         <version.protostuff>1.0.7</version.protostuff>
         <version.redhat.eap6>6.1</version.redhat.eap6>
@@ -134,6 +139,7 @@
         <version.riftsaw.console>2.4.5.Final</version.riftsaw.console>
         <version.rhino>1.7R2</version.rhino>
         <version.saxon>9.2.1.5</version.saxon>
+        <version.servlet.api>2.5</version.servlet.api>
         <version.shrinkwrap.descriptors>2.0.0-alpha-3</version.shrinkwrap.descriptors>
         <version.slf4j>1.6.4</version.slf4j>
         <version.spring>3.0.7.RELEASE</version.spring>
@@ -143,6 +149,32 @@
         <version.xmlbeans>2.2.0</version.xmlbeans>
         <version.xmlunit>1.1</version.xmlunit>
         <version.xstream>1.4.1</version.xstream>
+
+        <!-- OSGi bundles properties -->
+        <switchyard.osgi.import.switchyard.version>version="[$(version;==;${switchyard.osgi.version}),$(version;=+;${switchyard.osgi.version}))"</switchyard.osgi.import.switchyard.version>
+        <switchyard.osgi.import.default.version>[$(version;==;$(@)),$(version;+;$(@)))</switchyard.osgi.import.default.version>
+        <switchyard.osgi.activator />
+        <switchyard.osgi.failok>true</switchyard.osgi.failok>
+        <switchyard.osgi.import>
+            org.switchyard.*;${switchyard.osgi.import.switchyard.version},
+            *
+        </switchyard.osgi.import>
+        <switchyard.osgi.export.pkg>org.switchyard.*</switchyard.osgi.export.pkg>
+        <switchyard.osgi.export>
+            ${switchyard.osgi.export.pkg};version="${switchyard.osgi.version}";-noimport:=true
+        </switchyard.osgi.export>
+        <switchyard.osgi.private />
+        <switchyard.osgi.dynamic />
+        <switchyard.osgi.bundle.name>${project.name}</switchyard.osgi.bundle.name>
+        <switchyard.osgi.symbolic.name>${project.groupId}.${project.artifactId}</switchyard.osgi.symbolic.name>
+        <switchyard.osgi.exclude.dependencies>false</switchyard.osgi.exclude.dependencies>
+        <switchyard.osgi.resource>{maven-resources}</switchyard.osgi.resource>
+        <switchyard.osgi.services.export />
+        <switchyard.osgi.embed.dependency>!*</switchyard.osgi.embed.dependency>
+        <switchyard.osgi.require.bundle />
+        <switchyard.osgi.fragment.host />
+        <switchyard.osgi.provide.capability />
+        <switchyard.osgi.require.capability />
     </properties>
     <scm>
         <connection>scm:git:ssh//github.com/switchyard/core.git</connection>
@@ -294,6 +326,36 @@
                     <groupId>org.switchyard</groupId>
                     <artifactId>switchyard-plugin</artifactId>
                     <version>${project.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${version.felix.maven}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <excludeDependencies>${switchyard.osgi.exclude.dependencies}</excludeDependencies>
+                        <instructions>
+                            <Bundle-Name>${switchyard.osgi.bundle.name}</Bundle-Name>
+                            <Bundle-SymbolicName>${switchyard.osgi.symbolic.name}</Bundle-SymbolicName>
+                            <Bundle-DocURL>http://switchyard.org</Bundle-DocURL>
+                            <Bundle-Activator>${switchyard.osgi.activator}</Bundle-Activator>
+                            <Export-Package>${switchyard.osgi.export}</Export-Package>
+                            <Import-Package>${switchyard.osgi.import}</Import-Package>
+                            <DynamicImport-Package>${switchyard.osgi.dynamic}</DynamicImport-Package>
+                            <Private-Package>${switchyard.osgi.private}</Private-Package>
+                            <Implementation-Title>JBoss SwitchYard</Implementation-Title>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                            <Include-Resource>${switchyard.osgi.resource}</Include-Resource>
+                            <_versionpolicy>${switchyard.osgi.import.default.version}</_versionpolicy>
+                            <_failok>${switchyard.osgi.failok}</_failok>
+                            <Export-Service>${switchyard.osgi.services.export}</Export-Service>
+                            <Embed-Dependency>${switchyard.osgi.embed.dependency}</Embed-Dependency>
+                            <Require-Bundle>${switchyard.osgi.require.bundle}</Require-Bundle>
+                            <Fragment-Host>${switchyard.osgi.fragment.host}</Fragment-Host>
+	                        <Provide-Capability>${switchyard.osgi.provide.capability}</Provide-Capability>
+	                        <Require-Capability>${switchyard.osgi.require.capability}</Require-Capability>
+                        </instructions>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -455,6 +517,26 @@
                         <goals>
                             <goal>jar-no-fork</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- OSGi -->
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <inherited>true</inherited>
+                <executions>
+                    <execution>
+                        <id>cleanVersions</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>cleanVersions</goal>
+                        </goals>
+                        <configuration>
+                            <versions>
+                                <switchyard.osgi.version>${project.version}</switchyard.osgi.version>
+                            </versions>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -713,6 +795,16 @@
             <dependency>
                 <groupId>org.switchyard</groupId>
                 <artifactId>switchyard-deploy-webapp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.switchyard</groupId>
+                <artifactId>switchyard-deploy-osgi</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.switchyard</groupId>
+                <artifactId>switchyard-deploy-karaf</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -1696,6 +1788,17 @@
                 </exclusions>
             </dependency>
             <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-core-osgi</artifactId>
+                <version>${version.camel}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.sun.xml.bind</groupId>
+                        <artifactId>jaxb-impl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.ftpserver</groupId>
                 <artifactId>ftpserver-core</artifactId>
                 <version>${version.ftpserver}</version>
@@ -1771,6 +1874,16 @@
                 <groupId>org.apache.xmlbeans</groupId>
                 <artifactId>xmlbeans</artifactId>
                 <version>${version.xmlbeans}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${version.httpcomponents}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${version.httpcomponents}</version>
             </dependency>
             <dependency>
                 <groupId>org.clojure</groupId>
@@ -2046,6 +2159,11 @@
                 <version>${version.weld}</version>
             </dependency>
             <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${version.servlet.api}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jbpm</groupId>
                 <artifactId>jbpm-bam</artifactId>
                 <version>${version.jbpm}</version>
@@ -2234,6 +2352,11 @@
                 <version>${version.slf4j}</version>
             </dependency>
             <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${version.log4j}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-asm</artifactId>
                 <version>${version.spring}</version>
@@ -2321,6 +2444,26 @@
                 <groupId>org.jboss.ws</groupId>
                 <artifactId>jbossws-jboss720-server-integration</artifactId>
                 <version>${version.jbossws.jboss720.server.integration}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.core</artifactId>
+                <version>${version.osgi.core}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.compendium</artifactId>
+                <version>${version.osgi.compendium}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf.shell</groupId>
+                <artifactId>org.apache.karaf.shell.console</artifactId>
+                <version>${version.karaf}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf</groupId>
+                <artifactId>org.apache.karaf.util</artifactId>
+                <version>${version.karaf}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
