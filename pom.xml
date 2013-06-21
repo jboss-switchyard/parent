@@ -165,7 +165,7 @@
         </switchyard.osgi.export>
         <switchyard.osgi.private />
         <switchyard.osgi.dynamic />
-        <switchyard.osgi.bundle.name>${project.description}</switchyard.osgi.bundle.name>
+        <switchyard.osgi.bundle.name>${project.name}</switchyard.osgi.bundle.name>
         <switchyard.osgi.symbolic.name>${project.groupId}.${project.artifactId}</switchyard.osgi.symbolic.name>
         <switchyard.osgi.exclude.dependencies>false</switchyard.osgi.exclude.dependencies>
         <switchyard.osgi.resource>{maven-resources}</switchyard.osgi.resource>
@@ -173,6 +173,8 @@
         <switchyard.osgi.embed.dependency>!*</switchyard.osgi.embed.dependency>
         <switchyard.osgi.require.bundle />
         <switchyard.osgi.fragment.host />
+        <switchyard.osgi.provide.capability />
+        <switchyard.osgi.require.capability />
     </properties>
     <scm>
         <connection>scm:git:ssh//github.com/switchyard/core.git</connection>
@@ -350,6 +352,8 @@
                             <Embed-Dependency>${switchyard.osgi.embed.dependency}</Embed-Dependency>
                             <Require-Bundle>${switchyard.osgi.require.bundle}</Require-Bundle>
                             <Fragment-Host>${switchyard.osgi.fragment.host}</Fragment-Host>
+	                        <Provide-Capability>${switchyard.osgi.provide.capability}</Provide-Capability>
+	                        <Require-Capability>${switchyard.osgi.require.capability}</Require-Capability>
                         </instructions>
                     </configuration>
                 </plugin>
