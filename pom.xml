@@ -112,7 +112,6 @@
         <version.jython>2.5.3</version.jython>
         <version.kie>6.0.0.Beta3</version.kie>
         <version.maven.plugin.plugin>3.1</version.maven.plugin.plugin>
-        <version.mina>2.0.4</version.mina>
         <version.milyn>1.5.1</version.milyn>
         <version.mock.javamail>1.9</version.mock.javamail>
         <version.mvel>2.1.5.Final</version.mvel>
@@ -1693,11 +1692,6 @@
                 <artifactId>maven-plugin-plugin</artifactId>
                 <version>${version.maven.plugin.plugin}</version>
                 <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.mina</groupId>
-                <artifactId>mina-core</artifactId>
-                <version>${version.mina}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.qpid</groupId>
