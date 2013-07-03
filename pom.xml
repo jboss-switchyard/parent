@@ -79,6 +79,7 @@
         <version.commons.net>2.2</version.commons.net>
         <version.commons.ssl>0.3.9</version.commons.ssl>
         <version.deltaspike>${version.org.apache.deltaspike}</version.deltaspike>
+        <version.dozer>5.4.0</version.dozer>
         <version.drools>6.0.0.Beta3</version.drools>
         <version.ecj>3.5.1</version.ecj>
         <version.forge>1.2.2.Final</version.forge>
@@ -1263,6 +1264,11 @@
                 <version>${project.version}</version>
             </dependency>
             <!-- External dependencies - please keep in alphabetical order by groupId -->
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${version.dozer}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.xmlgraphics</groupId>
                 <artifactId>batik-dom</artifactId>
