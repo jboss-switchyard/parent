@@ -138,9 +138,9 @@
         <version.xstream>1.4.3</version.xstream>
     </properties>
     <scm>
-        <connection>scm:git:ssh//github.com/switchyard/core.git</connection>
-        <developerConnection>scm:git:ssh://github.com/switchyard/core.git</developerConnection>
-        <url>http://github.com/switchyard/core</url>
+        <connection>scm:git:ssh//github.com/jboss-switchyard/parent.git</connection>
+        <developerConnection>scm:git:ssh://github.com/jboss-switchyard/parent.git</developerConnection>
+        <url>http://github.com/jboss-switchyard/parent</url>
     </scm>
     <repositories>
         <repository>
