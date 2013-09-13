@@ -108,6 +108,7 @@
         <version.kie>6.0.0.CR3</version.kie>
         <version.littleproxy>0.5.3</version.littleproxy>
         <version.maven.plugin.plugin>3.1</version.maven.plugin.plugin>
+        <version.maven.clean.plugin>2.5</version.maven.clean.plugin>
         <version.milyn>1.5.1</version.milyn>
         <version.mock.javamail>1.9</version.mock.javamail>
         <version.mvel>2.1.6.Final</version.mvel>
