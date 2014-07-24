@@ -1238,6 +1238,11 @@
                 <version>${version.cxf}</version>
             </dependency>
             <dependency>
+               <groupId>org.apache.cxf</groupId>
+               <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+              <version>${version.cxf}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-databinding-jaxb</artifactId>
                 <version>${version.cxf}</version>
@@ -2290,7 +2295,23 @@
             </dependency>
             <dependency>
                 <groupId>org.switchyard.quickstarts</groupId>
+                <artifactId>switchyard-camel-soap-proxy-reverse</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.switchyard.quickstarts</groupId>
+                <artifactId>switchyard-camel-soap-proxy-reverse-service</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>org.switchyard.quickstarts</groupId>
                 <artifactId>switchyard-camel-soap-proxy</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.switchyard.quickstarts</groupId>
+                <artifactId>switchyard-camel-soap-karaf-proxy</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
