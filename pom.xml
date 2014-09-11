@@ -69,10 +69,10 @@
         <version.org.littleshoot.littleproxy>0.5.3</version.org.littleshoot.littleproxy>
         <version.org.jvnet.mock-javamail>1.9</version.org.jvnet.mock-javamail>
         <version.net.sf.dozer>5.4.0</version.net.sf.dozer>
-        <version.overlord-commons>2.0.2.Final</version.overlord-commons>
         <version.org.fusesource.mqtt-client>1.6</version.org.fusesource.mqtt-client>
         <!--  RiftSaw -->
         <version.activity.monitor.model>1.2.2.Final</version.activity.monitor.model>
+        <version.overlord-commons>2.0.2.Final</version.overlord-commons>
         <version.riftsaw.ode>3.2.0.Final</version.riftsaw.ode>
         <version.riftsaw.engine>3.2.0.Final</version.riftsaw.engine>
         <version.riftsaw.console>2.4.6.Final</version.riftsaw.console>
@@ -699,6 +699,27 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-bom</artifactId>
+                <version>${version.org.drools}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.kie</groupId>
+                <artifactId>kie-bom</artifactId>
+                <version>${version.org.kie}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jbpm</groupId>
+                <artifactId>jbpm-bom</artifactId>
+                <version>${version.org.jbpm}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 <!--  ###################################################################
       ##      Dependencies coming in Integration BOM 6.0.0.CR13        ##
       ################################################################### -->
@@ -946,40 +967,8 @@
                 <type>zip</type>
             </dependency>
 <!--  ###################################################################
-      ##                 Local Project Dependencies                    ##
+      ##                    RiftSaw Dependencies                       ##
       ################################################################### -->
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-compiler</artifactId>
-                <version>${version.org.drools}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-core</artifactId>
-                <version>${version.org.drools}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-decisiontables</artifactId>
-                <version>${version.org.drools}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-persistence-jpa</artifactId>
-                <version>${version.org.drools}</version>
-            </dependency>
-            <!-- SWITCHYARD-1662
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-scorecards</artifactId>
-                <version>${version.org.drools}</version>
-            </dependency>
-            -->
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-templates</artifactId>
-                <version>${version.org.drools}</version>
-            </dependency>
             <dependency>
                 <groupId>org.jboss.bpm</groupId>
                 <artifactId>activity-monitor-model</artifactId>
@@ -1088,150 +1077,6 @@
                 <version>${version.riftsaw.ode}</version>
             </dependency>
             <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-audit</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-bpmn2</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-executor</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-flow</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-flow-builder</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-human-task-audit</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-human-task-core</artifactId>
-                <version>${version.org.jbpm}</version>
-                <!-- in jBPM 6.0.x, human task persistence is here -->
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.jboss.seam.persistence</groupId>
-                        <artifactId>seam-persistence</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.jboss.seam.transaction</groupId>
-                        <artifactId>seam-transaction</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-human-task-jpa</artifactId>
-                <version>${version.org.jbpm}</version>
-                <!-- in jBPM 6.1.x, human task persistence is here -->
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.jboss.seam.persistence</groupId>
-                        <artifactId>seam-persistence</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.jboss.seam.transaction</groupId>
-                        <artifactId>seam-transaction</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-human-task-workitems</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-kie-services</artifactId>
-                <version>${version.org.jbpm}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.jboss.seam.persistence</groupId>
-                        <artifactId>seam-persistence</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.jboss.seam.transaction</groupId>
-                        <artifactId>seam-transaction</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.lucene</groupId>
-                        <artifactId>lucene-analyzers-common</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-persistence-jpa</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-runtime-manager</artifactId>
-                <version>${version.org.jbpm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-shared-services</artifactId>
-                <version>${version.org.jbpm}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.jboss.seam.persistence</groupId>
-                        <artifactId>seam-persistence</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.jboss.seam.transaction</groupId>
-                        <artifactId>seam-transaction</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-workitems</artifactId>
-                <version>${version.org.jbpm}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.cxf</groupId>
-                        <artifactId>cxf-rt-frontend-jaxws</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.cxf</groupId>
-                        <artifactId>cxf-rt-databinding-jaxb</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.cxf</groupId>
-                        <artifactId>cxf-rt-transports-http</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.neethi</groupId>
-                        <artifactId>neethi</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.kie</groupId>
-                <artifactId>kie-api</artifactId>
-                <version>${version.org.kie}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.kie</groupId>
-                <artifactId>kie-internal</artifactId>
-                <version>${version.org.kie}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.riftsaw</groupId>
                 <artifactId>engine</artifactId>
                 <version>${version.riftsaw.engine}</version>
@@ -1269,7 +1114,7 @@
                 <version>${version.riftsaw.engine}</version>
                 <type>war</type>
             </dependency>
-            <!--  ###################################################################
+<!--  ###################################################################
       ##                       Project Artifacts                       ##
       ################################################################### -->
             <dependency>
