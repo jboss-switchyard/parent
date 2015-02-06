@@ -904,6 +904,18 @@
                 <version>${project.version}</version>
                 <type>zip</type>
             </dependency>
+ 	   <dependency>
+                <groupId>org.switchyard.brms</groupId>
+                <artifactId>switchyard-as7-modules</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>org.switchyard.brms</groupId>
+                <artifactId>switchyard-as7-standalone-bundle</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
             <dependency>
                 <groupId>org.switchyard</groupId>
                 <artifactId>switchyard-api</artifactId>
@@ -1033,6 +1045,13 @@
             </dependency>
             <dependency>
                 <groupId>org.switchyard.karaf</groupId>
+                <artifactId>switchyard</artifactId>
+                <type>xml</type>
+                <classifier>features</classifier>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.switchyard.brms.karaf</groupId>
                 <artifactId>switchyard</artifactId>
                 <type>xml</type>
                 <classifier>features</classifier>
