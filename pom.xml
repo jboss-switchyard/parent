@@ -63,6 +63,7 @@
         <!-- consider moving to integration platform bom -->
         <version.camelsap>6.2.0.redhat-064</version.camelsap>
         <version.org.fusesource.mqtt-client>1.6</version.org.fusesource.mqtt-client>
+        <version.org.wildfly.camel>2.2.0.redhat-620013</version.org.wildfly.camel>
         <!--  RiftSaw -->
         <version.activity.monitor.model>1.2.2.Final</version.activity.monitor.model>
         <version.overlord-commons>2.0.2.Final</version.overlord-commons>
