@@ -72,10 +72,7 @@
         <version.riftsaw.console>2.4.6.Final</version.riftsaw.console>
         <!-- Remove when RiftSaw upgrades to net.sf.saxon:Saxon-HE:9.5.1-2  -->
         <version.net.sourceforge.saxon>9.2.1.5</version.net.sourceforge.saxon>
-        <!-- KIE/Drools/jBPM: these should all match -->
-        <version.org.kie>6.2.0.CR3</version.org.kie>
-        <version.org.drools>6.2.0.CR3</version.org.drools>
-        <version.org.jbpm>6.2.0.CR3</version.org.jbpm>
+        
         <!-- Require investigation and/or will be removed  -->
         <version.jbossws.jboss720.server.integration>4.2.0.Final</version.jbossws.jboss720.server.integration>
         <!-- Plugin versions -->
@@ -110,6 +107,7 @@
         <switchyard.osgi.fragment.host/>
         <switchyard.osgi.provide.capability/>
         <switchyard.osgi.require.capability/>
+	    <version.org.mvel>2.2.4.Final</version.org.mvel>
     </properties>
     <scm>
         <connection>scm:git:https://github.com/jboss-switchyard/parent.git</connection>
@@ -845,27 +843,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.kie</groupId>
-                <artifactId>kie-bom</artifactId>
-                <version>${version.org.kie}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-bom</artifactId>
-                <version>${version.org.drools}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-bom</artifactId>
-                <version>${version.org.jbpm}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+        
+          
             <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>eap6-supported-artifacts</artifactId>
@@ -1349,11 +1328,7 @@
                 <artifactId>switchyard-component-bpel</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.switchyard.components</groupId>
-                <artifactId>switchyard-component-bpm</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+           
             <dependency>
                 <groupId>org.switchyard.components</groupId>
                 <artifactId>switchyard-component-camel</artifactId>
@@ -1467,11 +1442,6 @@
             </dependency>
             <dependency>
                 <groupId>org.switchyard.components</groupId>
-                <artifactId>switchyard-component-common-knowledge</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.switchyard.components</groupId>
                 <artifactId>switchyard-component-common-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -1483,11 +1453,6 @@
             <dependency>
                 <groupId>org.switchyard.components</groupId>
                 <artifactId>switchyard-component-resteasy</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.switchyard.components</groupId>
-                <artifactId>switchyard-component-rules</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -1719,26 +1684,6 @@
             </dependency>
             <dependency>
                 <groupId>org.switchyard.quickstarts</groupId>
-                <artifactId>switchyard-rules-camel-cbr</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.switchyard.quickstarts</groupId>
-                <artifactId>switchyard-rules-interview</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.switchyard.quickstarts</groupId>
-                <artifactId>switchyard-rules-interview-container</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.switchyard.quickstarts</groupId>
-                <artifactId>switchyard-rules-interview-dtable</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.switchyard.quickstarts</groupId>
                 <artifactId>switchyard-soap-addressing</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -1757,11 +1702,7 @@
                 <artifactId>switchyard-soap-mtom</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.switchyard.quickstarts</groupId>
-                <artifactId>switchyard-bpm-service</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>org.switchyard.quickstarts</groupId>
                 <artifactId>switchyard-bpel-say-hello</artifactId>
@@ -1844,7 +1785,11 @@
                 <artifactId>switchyard-demo-security-propagation-basic</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            
+            <dependency>
+                <groupId>org.mvel</groupId>
+                <artifactId>mvel2</artifactId>
+                <version>${version.org.mvel}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <distributionManagement>
