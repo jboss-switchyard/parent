@@ -32,10 +32,6 @@
         <version.ip.bom>6.0.0.CR24</version.ip.bom>
         <version.org.jboss.as>7.4.0.Final-redhat-19</version.org.jboss.as>
         <version.redhat.eap6.bom>6.3.0.GA</version.redhat.eap6.bom>
-        <!-- KIE/Drools/jBPM: these should all match -->
-        <version.org.kie>6.2.0.CR3</version.org.kie>
-        <version.org.drools>6.2.0.CR3</version.org.drools>
-        <version.org.jbpm>6.2.0.CR3</version.org.jbpm>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -229,27 +225,6 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.kie</groupId>
-                <artifactId>kie-bom</artifactId>
-                <version>${version.org.kie}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.drools</groupId>
-                <artifactId>drools-bom</artifactId>
-                <version>${version.org.drools}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jbpm</groupId>
-                <artifactId>jbpm-bom</artifactId>
-                <version>${version.org.jbpm}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>eap6-supported-artifacts</artifactId>
                 <version>${version.redhat.eap6.bom}</version>
@@ -307,11 +282,6 @@
             <dependency>
                 <groupId>org.switchyard.components</groupId>
                 <artifactId>switchyard-component-bpel</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.switchyard.components</groupId>
-                <artifactId>switchyard-component-bpm</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -412,11 +382,6 @@
             <dependency>
                 <groupId>org.switchyard.components</groupId>
                 <artifactId>switchyard-component-resteasy</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.switchyard.components</groupId>
-                <artifactId>switchyard-component-rules</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
