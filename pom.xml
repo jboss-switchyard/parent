@@ -57,7 +57,7 @@
         <version.ip.bom>6.0.0.CR24</version.ip.bom>
         <!-- This version is only used as a prefix for a jar included in release modules -->
         <version.redhat.eap6>6.4</version.redhat.eap6>
-        <version.redhat.eap6.minor>0-Beta</version.redhat.eap6.minor>
+        <version.redhat.eap6.minor>0</version.redhat.eap6.minor>
         <version.org.fusesource.hawtdispatch>1.18</version.org.fusesource.hawtdispatch>
         <version.org.fusesource.hawtbuf>1.9</version.org.fusesource.hawtbuf>
         <!-- consider moving to integration platform bom -->
