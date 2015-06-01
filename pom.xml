@@ -64,11 +64,11 @@
         <version.camelsap>6.2.0.redhat-064</version.camelsap>
         <version.org.fusesource.mqtt-client>1.6</version.org.fusesource.mqtt-client>
         <!--  RiftSaw -->
-        <version.activity.monitor.model>1.2.2.Final</version.activity.monitor.model>
+        <version.activity.monitor.model>1.2.3.Final-redhat-4</version.activity.monitor.model>
         <version.overlord-commons>2.0.2.Final</version.overlord-commons>
-        <version.riftsaw.ode>3.2.0.Final</version.riftsaw.ode>
-        <version.riftsaw.engine>3.2.0.Final</version.riftsaw.engine>
-        <version.riftsaw.console>2.4.6.Final</version.riftsaw.console>
+        <version.riftsaw.ode>3.2.1.Final-redhat-4</version.riftsaw.ode>
+        <version.riftsaw.engine>3.2.2.Final</version.riftsaw.engine>
+        <version.riftsaw.console>2.4.8.Final</version.riftsaw.console>
         <!-- Remove when RiftSaw upgrades to net.sf.saxon:Saxon-HE:9.5.1-2  -->
         <version.net.sourceforge.saxon>9.2.1.5</version.net.sourceforge.saxon>
         <!-- KIE/Drools/jBPM: these should all match -->
